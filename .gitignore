@@ -1,0 +1,6 @@
+# npm ignores
+package-lock.json
+/node_modules/
+
+# temporary files
+*.swp
