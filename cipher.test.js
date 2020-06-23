@@ -1,15 +1,15 @@
-const cipher = './cipher';
+const cipher = require('./cipher');
 
 test('should encrypt lowcase strings with especified shift', () => {
-  expect(cipher.caesearEncrypt('really unpractical cipher'),10).toBe('bokvvi exzbkmdsmkv mszrob');
-  expect(cipher.caesearEncrypt('really unpractical cipher'),15).toBe('gtpaan jcegprixrpa rxewtg');
-  expect(cipher.caesearEncrypt('really unpractical cipher'),7).toBe('ylhssf buwyhjapjhs jpwoly');
+  expect(cipher.caesarEncrypt('really unpractical cipher',10)).toBe('bokvvi exzbkmdsmkv mszrob');
+  expect(cipher.caesarEncrypt('really unpractical cipher',15)).toBe('gtpaan jcegprixrpa rxewtg');
+  expect(cipher.caesarEncrypt('really unpractical cipher',7)).toBe('ylhssf buwyhjapjhs jpwoly');
 });
 
 test('should encrypt lowcase strings without especified shift', () => {
-  expect(cipher.caesearEncrypt('done in javascript')).toBe('nyxo sx tkfkcmbszd');
-  expect(cipher.caesearEncrypt('meant to be tested using jest')).toBe('woxd dy lo docdon ecsxq tocd');
-  expect(cipher.caesearEncrypt('really unpractical cipher')).toBe('bokvvi exzbkmdsmkv mizrob');
+  expect(cipher.caesarEncrypt('done in javascript')).toBe('nyxo sx tkfkcmbszd');
+  expect(cipher.caesarEncrypt('meant to be tested using jest')).toBe('wokxd dy lo docdon ecsxq tocd');
+  expect(cipher.caesarEncrypt('really unpractical cipher')).toBe('bokvvi exzbkmdsmkv mszrob');
 });
 
 test('shoud mantain the original casing', () => {
@@ -19,7 +19,7 @@ test('shoud mantain the original casing', () => {
 
 test('shoud mantain puntuation marks', () => {
   expect(cipher.caesarEncrypt('this! is? a really, unpractical. cipher;',15))
-    .toBe('iwxh! xh? p gtpaan, jcegprixrpa. rnewtg;');
+    .toBe('iwxh! xh? p gtpaan, jcegprixrpa. rxewtg;');
   expect(cipher.caesarEncrypt('testing MAYUS',15)).toBe('ithixcv BPNJH');
 });
 
