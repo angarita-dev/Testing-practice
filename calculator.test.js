@@ -4,7 +4,7 @@ const calculator = require('./calculator');
 test('adds integers correctly', () => {
   expect(calculator.add(1,5)).toBe(6);
   expect(calculator.add(0,8)).toBe(8);
-  expect(calculator.add(12,75)).toBe(87);
+  expect(calculator.add(12,-75)).toBe(63);
 });
 
 test('adds floats correctly', () => {
@@ -28,7 +28,7 @@ test('throws error when different type is being passed', () => {
 test('substracts integers correctly', () => {
   expect(calculator.substract(1,5)).toBe(-4);
   expect(calculator.substract(0,8)).toBe(-8);
-  expect(calculator.substract(12,75)).toBe(-63);
+  expect(calculator.substract(12,-75)).toBe(87);
 });
 
 test('substracts floats correctly', () => {
@@ -46,4 +46,28 @@ test('substracts float with integer', () => {
 test('throws error when different type is being passed to substract', () => {
   expect(calculator.substract('12','14')).toThrow(TypeError);
   expect(calculator.substract('rer',12)).toThrow(TypeError);
+});
+
+// Multiply
+test('multiplies integers correctly', () => {
+  expect(calculator.multiply(1,5)).toBe(5);
+  expect(calculator.multiply(0,8)).toBe(0);
+  expect(calculator.multiply(12,-75)).toBe(-900);
+});
+
+test('multiplies floats correctly', () => {
+  expect(calculator.multiply(9.4,11.2)).toBe(105.28);
+  expect(calculator.multiply(21.9,11.8)).toBe(258.42);
+  expect(calculator.multiply(12.4,11.1)).toBe(137.64);
+});
+
+test('multiplies float with integer', () => {
+  expect(calculator.multiply(18.5,12)).toBe(222);
+  expect(calculator.multiply(11.5,10)).toBe(115);
+  expect(calculator.multiply(4.3,10)).toBe(43);
+});
+
+test('throws error when different type is being passed to multiply', () => {
+  expect(calculator.multiply('12','14')).toThrow(TypeError);
+  expect(calculator.multiply('rer',12)).toThrow(TypeError);
 });
