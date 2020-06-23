@@ -1,13 +1,14 @@
 function arrayAnalyze(array) {
-  if(typeof array != 'object') throw new TypeError;
-  const length = array.length;
+  if (typeof array !== 'object') throw new TypeError();
+  const { length } = array;
   let sum = 0;
-  let min, max;
+  let min; let
+    max;
 
-  array.forEach( number => {
-    if(typeof number != 'number') throw new TypeError;
-    if(min === undefined || number < min) min = number;
-    if(max === undefined || number > max) max = number;
+  array.forEach(number => {
+    if (typeof number !== 'number') throw new TypeError();
+    if (min === undefined || number < min) min = number;
+    if (max === undefined || number > max) max = number;
     sum += number;
   });
 
@@ -15,8 +16,8 @@ function arrayAnalyze(array) {
     length,
     min,
     max,
-    average: sum/length,
-  }
+    average: sum / length,
+  };
 }
 
 module.exports = arrayAnalyze;

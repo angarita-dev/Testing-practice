@@ -1,29 +1,27 @@
 class cipher {
   static caesarEncrypt(string, shift = 10) {
-    if (typeof string != 'string' || !Number.isInteger(shift)) throw new TypeError;
-    let originalStringArray = string.split('');
+    if (typeof string !== 'string' || !Number.isInteger(shift)) throw new TypeError();
+    const originalStringArray = string.split('');
 
-    const charCodeBase26 = (charCode,shift) => { return (charCode + shift) % 26 };
-    const caesarEncryptChar= (character, shift) => {
+    const charCodeBase26 = (charCode, shift) => (charCode + shift) % 26;
+    const caesarEncryptChar = (character, shift) => {
       const charCode = character.charCodeAt(0);
-      if (charCode >= 97 && charCode <= 122){ // For lowerCase
-        const shiftedCharCodeBase26 = charCodeBase26(charCode - 97,shift)
+      if (charCode >= 97 && charCode <= 122) { // For lowerCase
+        const shiftedCharCodeBase26 = charCodeBase26(charCode - 97, shift);
 
         return String.fromCharCode(97 + shiftedCharCodeBase26);
-      } else if (charCode >= 65 && charCode <= 90) { // For upperCase
-        const shiftedCharCodeBase26 = charCodeBase26(charCode - 65,shift)
+      } if (charCode >= 65 && charCode <= 90) { // For upperCase
+        const shiftedCharCodeBase26 = charCodeBase26(charCode - 65, shift);
 
         return String.fromCharCode(65 + shiftedCharCodeBase26);
       }
 
-      return character
-    }
+      return character;
+    };
 
-    let encryptedStringArray = originalStringArray.map( character => {
-      return caesarEncryptChar(character, shift)
-    });
+    const encrypted = originalStringArray.map(character => caesarEncryptChar(character, shift));
 
-    return encryptedStringArray.join('');
+    return encrypted.join('');
   }
 }
 

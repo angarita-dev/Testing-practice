@@ -8,8 +8,8 @@ test('makes first character capitalized', () => {
 
 
 test('capitalize should only allow strings', () => {
-  expect(() => { manipulateString.capitalize(123) }).toThrow(TypeError);
-  expect(() => { manipulateString.capitalize(true) }).toThrow(TypeError);
+  expect(() => { manipulateString.capitalize(123); }).toThrow(TypeError);
+  expect(() => { manipulateString.capitalize(true); }).toThrow(TypeError);
 });
 
 test('reverses string', () => {
@@ -19,7 +19,6 @@ test('reverses string', () => {
 });
 
 test('reverse should only allow strings', () => {
-  expect(() => { manipulateString.reverse(123) }).toThrow(TypeError);
-  expect(() => { manipulateString.reverse(true) }).toThrow(TypeError);
+  expect(() => { manipulateString.reverse(123); }).toThrow(TypeError);
+  expect(() => { manipulateString.reverse(true); }).toThrow(TypeError);
 });
-
