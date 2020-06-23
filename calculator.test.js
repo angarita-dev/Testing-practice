@@ -71,3 +71,28 @@ test('throws error when different type is being passed to multiply', () => {
   expect(calculator.multiply('12','14')).toThrow(TypeError);
   expect(calculator.multiply('rer',12)).toThrow(TypeError);
 });
+
+// Divide
+test('divides integers correctly', () => {
+  expect(calculator.divide(1,5)).toBe(0.2);
+  expect(calculator.divide(0,8)).toBe(0);
+  expect(calculator.divide(5,0)).toBe(undefined);
+  expect(calculator.divide(12,-75)).toBe(-0.16);
+});
+
+test('divides floats correctly', () => {
+  expect(calculator.divide(9.4,11.2)).toBe(0.8392857142857144);
+  expect(calculator.divide(10.5,2.5)).toBe(4.2);
+  expect(calculator.divide(12.8,2.5)).toBe(5.12);
+});
+
+test('divides float with integer', () => {
+  expect(calculator.divide(18.5,2)).toBe(9.25);
+  expect(calculator.divide(11.5,10)).toBe(1.15);
+  expect(calculator.divide(4.3,10)).toBe(0.43);
+});
+
+test('throws error when different type is being passed to divide', () => {
+  expect(calculator.divide('12','14')).toThrow(TypeError);
+  expect(calculator.divide('rer',12)).toThrow(TypeError);
+});
