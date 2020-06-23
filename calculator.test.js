@@ -4,7 +4,7 @@ const calculator = require('./calculator');
 test('adds integers correctly', () => {
   expect(calculator.add(1,5)).toBe(6);
   expect(calculator.add(0,8)).toBe(8);
-  expect(calculator.add(12,-75)).toBe(63);
+  expect(calculator.add(12,-75)).toBe(-63);
 });
 
 test('adds floats correctly', () => {
@@ -20,8 +20,8 @@ test('adds float with integer', () => {
 });
 
 test('throws error when different type is being passed', () => {
-  expect(calculator.add('12','14')).toThrow(TypeError);
-  expect(calculator.add('rer',12)).toThrow(TypeError);
+  expect(() => { calculator.add('12','14') }).toThrow(TypeError);
+  expect(() => { calculator.add('rer',12) }).toThrow(TypeError);
 });
 
 // Substract
@@ -32,9 +32,9 @@ test('substracts integers correctly', () => {
 });
 
 test('substracts floats correctly', () => {
-  expect(calculator.substract(9.4,11.2)).toBe(-1.8);
-  expect(calculator.substract(21.9,11.8)).toBe(10.1);
-  expect(calculator.substract(12.4,11.1)).toBe(1.3);
+  expect(calculator.substract(9.8,4.4)).toBe(5.4);
+  expect(calculator.substract(1.9,11.3)).toBe(-9.4);
+  expect(calculator.substract(12.4,11.4)).toBe(1);
 });
 
 test('substracts float with integer', () => {
@@ -44,8 +44,8 @@ test('substracts float with integer', () => {
 });
 
 test('throws error when different type is being passed to substract', () => {
-  expect(calculator.substract('12','14')).toThrow(TypeError);
-  expect(calculator.substract('rer',12)).toThrow(TypeError);
+  expect(() => { calculator.substract('12','14') }).toThrow(TypeError);
+  expect(() => { calculator.substract('rer',12) }).toThrow(TypeError);
 });
 
 // Multiply
@@ -68,8 +68,8 @@ test('multiplies float with integer', () => {
 });
 
 test('throws error when different type is being passed to multiply', () => {
-  expect(calculator.multiply('12','14')).toThrow(TypeError);
-  expect(calculator.multiply('rer',12)).toThrow(TypeError);
+  expect(() => { calculator.multiply('12','14') }).toThrow(TypeError);
+  expect(() => { calculator.multiply('rer',12) }).toThrow(TypeError);
 });
 
 // Divide
@@ -93,6 +93,6 @@ test('divides float with integer', () => {
 });
 
 test('throws error when different type is being passed to divide', () => {
-  expect(calculator.divide('12','14')).toThrow(TypeError);
-  expect(calculator.divide('rer',12)).toThrow(TypeError);
+  expect(() => { calculator.divide('12','14') }).toThrow(TypeError);
+  expect(() => { calculator.divide('rer',12) }).toThrow(TypeError);
 });
