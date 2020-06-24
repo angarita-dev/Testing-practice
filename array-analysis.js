@@ -2,8 +2,8 @@ function arrayAnalyze(array) {
   if (typeof array !== 'object') throw new TypeError();
   const { length } = array;
   let sum = 0;
-  let min; let
-    max;
+  let min;
+  let max;
 
   array.forEach(number => {
     if (typeof number !== 'number') throw new TypeError();
